@@ -1,0 +1,741 @@
+{
+  "scanned_at": "2026-08-14T01:14:53.556316",
+  "apps": [
+    {
+      "name": "4DDiG Partition Manager 3.9.2.19",
+      "display": "4DDiG Partition Manager 3.9.2.19"
+    },
+    {
+      "name": "7-Zip",
+      "display": "7-Zip"
+    },
+    {
+      "name": "Access",
+      "display": "Access"
+    },
+    {
+      "name": "Administrative Tools",
+      "display": "Administrative Tools"
+    },
+    {
+      "name": "Android Studio",
+      "display": "Android Studio"
+    },
+    {
+      "name": "Avast Update Helper",
+      "display": "Avast Update Helper"
+    },
+    {
+      "name": "Bang & Olufsen Audio",
+      "display": "Bang & Olufsen Audio"
+    },
+    {
+      "name": "Bang & Olufsen Audio Control Panel",
+      "display": "Bang & Olufsen Audio Control Panel"
+    },
+    {
+      "name": "BlueStacks Services",
+      "display": "BlueStacks Services"
+    },
+    {
+      "name": "CHIRP (kali-linux)",
+      "display": "CHIRP (kali-linux)"
+    },
+    {
+      "name": "Character Map",
+      "display": "Character Map"
+    },
+    {
+      "name": "CherryTree (kali-linux)",
+      "display": "CherryTree (kali-linux)"
+    },
+    {
+      "name": "Chromium Web Browser (kali-linux)",
+      "display": "Chromium Web Browser (kali-linux)"
+    },
+    {
+      "name": "Cisco Packet Tracer",
+      "display": "Cisco Packet Tracer"
+    },
+    {
+      "name": "Cisco Packet Tracer 9.0.0 64Bit",
+      "display": "Cisco Packet Tracer 9.0.0 64Bit"
+    },
+    {
+      "name": "Cisco Packet Tracer Help",
+      "display": "Cisco Packet Tracer Help"
+    },
+    {
+      "name": "Command Prompt",
+      "display": "Command Prompt"
+    },
+    {
+      "name": "Component Services",
+      "display": "Component Services"
+    },
+    {
+      "name": "Composer - PHP Dependency Manager",
+      "display": "Composer - PHP Dependency Manager"
+    },
+    {
+      "name": "Computer Management",
+      "display": "Computer Management"
+    },
+    {
+      "name": "Connectify Hotspot 23",
+      "display": "Connectify Hotspot 23"
+    },
+    {
+      "name": "Control Panel",
+      "display": "Control Panel"
+    },
+    {
+      "name": "DB Browser for SQLite (kali-linux)",
+      "display": "DB Browser for SQLite (kali-linux)"
+    },
+    {
+      "name": "DBeaver Community (kali-linux)",
+      "display": "DBeaver Community (kali-linux)"
+    },
+    {
+      "name": "Devin",
+      "display": "Devin"
+    },
+    {
+      "name": "Devin (User)",
+      "display": "Devin (User)"
+    },
+    {
+      "name": "Disk Cleanup",
+      "display": "Disk Cleanup"
+    },
+    {
+      "name": "DiskGenius V6.1.1",
+      "display": "DiskGenius V6.1.1"
+    },
+    {
+      "name": "Docker Desktop",
+      "display": "Docker Desktop"
+    },
+    {
+      "name": "Documentation",
+      "display": "Documentation"
+    },
+    {
+      "name": "Driftnet (kali-linux)",
+      "display": "Driftnet (kali-linux)"
+    },
+    {
+      "name": "Eclipse Temurin JDK with Hotspot 25+36 (x64)",
+      "display": "Eclipse Temurin JDK with Hotspot 25+36 (x64)"
+    },
+    {
+      "name": "Ettercap (kali-linux)",
+      "display": "Ettercap (kali-linux)"
+    },
+    {
+      "name": "Event Viewer",
+      "display": "Event Viewer"
+    },
+    {
+      "name": "Excel",
+      "display": "Excel"
+    },
+    {
+      "name": "File Explorer",
+      "display": "File Explorer"
+    },
+    {
+      "name": "Firefox ESR (kali-linux)",
+      "display": "Firefox ESR (kali-linux)"
+    },
+    {
+      "name": "GParted (kali-linux)",
+      "display": "GParted (kali-linux)"
+    },
+    {
+      "name": "GRASS GIS 8.4.1",
+      "display": "GRASS GIS 8.4.1"
+    },
+    {
+      "name": "GVim (kali-linux)",
+      "display": "GVim (kali-linux)"
+    },
+    {
+      "name": "Git",
+      "display": "Git"
+    },
+    {
+      "name": "Git Bash",
+      "display": "Git Bash"
+    },
+    {
+      "name": "Git CMD",
+      "display": "Git CMD"
+    },
+    {
+      "name": "Git GUI",
+      "display": "Git GUI"
+    },
+    {
+      "name": "Git Release Notes",
+      "display": "Git Release Notes"
+    },
+    {
+      "name": "Google Chrome",
+      "display": "Google Chrome"
+    },
+    {
+      "name": "Guymager (kali-linux)",
+      "display": "Guymager (kali-linux)"
+    },
+    {
+      "name": "Hardware Locality lstopo (kali-linux)",
+      "display": "Hardware Locality lstopo (kali-linux)"
+    },
+    {
+      "name": "Hyper-V Manager",
+      "display": "Hyper-V Manager"
+    },
+    {
+      "name": "IDLE (Python 3.12)",
+      "display": "IDLE (Python 3.12)"
+    },
+    {
+      "name": "IDLE (Python 3.14)",
+      "display": "IDLE (Python 3.14)"
+    },
+    {
+      "name": "ImageMagick (color depth=q16) (kali-linux)",
+      "display": "ImageMagick (color depth=q16) (kali-linux)"
+    },
+    {
+      "name": "Install Additional Tools for Node.js",
+      "display": "Install Additional Tools for Node.js"
+    },
+    {
+      "name": "Java(TM) SE Development Kit 26 (64-bit)",
+      "display": "Java(TM) SE Development Kit 26 (64-bit)"
+    },
+    {
+      "name": "LiveCaptions",
+      "display": "LiveCaptions"
+    },
+    {
+      "name": "Logs Collector Tool",
+      "display": "Logs Collector Tool"
+    },
+    {
+      "name": "Magnify",
+      "display": "Magnify"
+    },
+    {
+      "name": "Manual and Help",
+      "display": "Manual and Help"
+    },
+    {
+      "name": "Memory Diagnostics Tool",
+      "display": "Memory Diagnostics Tool"
+    },
+    {
+      "name": "Microsoft Edge",
+      "display": "Microsoft Edge"
+    },
+    {
+      "name": "Microsoft Edge WebView2 Runtime",
+      "display": "Microsoft Edge WebView2 Runtime"
+    },
+    {
+      "name": "Microsoft Office LTSC Professional Plus 2024 - en-us",
+      "display": "Microsoft Office LTSC Professional Plus 2024 - en-us"
+    },
+    {
+      "name": "Microsoft OneDrive",
+      "display": "Microsoft OneDrive"
+    },
+    {
+      "name": "Microsoft Project Professional 2024 - en-us",
+      "display": "Microsoft Project Professional 2024 - en-us"
+    },
+    {
+      "name": "Microsoft Update Health Tools",
+      "display": "Microsoft Update Health Tools"
+    },
+    {
+      "name": "Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.44.35211",
+      "display": "Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.44.35211"
+    },
+    {
+      "name": "Microsoft Visual C++ 2022 X64 Additional Runtime - 14.51.36247",
+      "display": "Microsoft Visual C++ 2022 X64 Additional Runtime - 14.51.36247"
+    },
+    {
+      "name": "Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.51.36247",
+      "display": "Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.51.36247"
+    },
+    {
+      "name": "Microsoft Visual C++ 2022 X86 Additional Runtime - 14.44.35211",
+      "display": "Microsoft Visual C++ 2022 X86 Additional Runtime - 14.44.35211"
+    },
+    {
+      "name": "Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.44.35211",
+      "display": "Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.44.35211"
+    },
+    {
+      "name": "Microsoft Visual C++ v14 Redistributable (x64) - 14.51.36247",
+      "display": "Microsoft Visual C++ v14 Redistributable (x64) - 14.51.36247"
+    },
+    {
+      "name": "Microsoft Visual Studio Code (User)",
+      "display": "Microsoft Visual Studio Code (User)"
+    },
+    {
+      "name": "MyPublicWiFi",
+      "display": "MyPublicWiFi"
+    },
+    {
+      "name": "MyPublicWiFi 31.3",
+      "display": "MyPublicWiFi 31.3"
+    },
+    {
+      "name": "MySQL 8.0 Command Line Client",
+      "display": "MySQL 8.0 Command Line Client"
+    },
+    {
+      "name": "MySQL 8.0 Command Line Client - Unicode",
+      "display": "MySQL 8.0 Command Line Client - Unicode"
+    },
+    {
+      "name": "MySQL Installer",
+      "display": "MySQL Installer"
+    },
+    {
+      "name": "MySQL Installer - Community",
+      "display": "MySQL Installer - Community"
+    },
+    {
+      "name": "MySQL Server 8.0",
+      "display": "MySQL Server 8.0"
+    },
+    {
+      "name": "MySQL Workbench 8.0 CE",
+      "display": "MySQL Workbench 8.0 CE"
+    },
+    {
+      "name": "Narrator",
+      "display": "Narrator"
+    },
+    {
+      "name": "Node.js",
+      "display": "Node.js"
+    },
+    {
+      "name": "Node.js command prompt",
+      "display": "Node.js command prompt"
+    },
+    {
+      "name": "Npcap",
+      "display": "Npcap"
+    },
+    {
+      "name": "OBS Studio",
+      "display": "OBS Studio"
+    },
+    {
+      "name": "ODBC Data Sources (32-bit)",
+      "display": "ODBC Data Sources (32-bit)"
+    },
+    {
+      "name": "ODBC Data Sources (64-bit)",
+      "display": "ODBC Data Sources (64-bit)"
+    },
+    {
+      "name": "OSGeo4W Shell",
+      "display": "OSGeo4W Shell"
+    },
+    {
+      "name": "Office 16 Click-to-Run Extensibility Component",
+      "display": "Office 16 Click-to-Run Extensibility Component"
+    },
+    {
+      "name": "Office 16 Click-to-Run Licensing Component",
+      "display": "Office 16 Click-to-Run Licensing Component"
+    },
+    {
+      "name": "Office Language Preferences",
+      "display": "Office Language Preferences"
+    },
+    {
+      "name": "On-Screen Keyboard",
+      "display": "On-Screen Keyboard"
+    },
+    {
+      "name": "OneDrive",
+      "display": "OneDrive"
+    },
+    {
+      "name": "OneNote",
+      "display": "OneNote"
+    },
+    {
+      "name": "Ophcrack (kali-linux)",
+      "display": "Ophcrack (kali-linux)"
+    },
+    {
+      "name": "Outlook (classic)",
+      "display": "Outlook (classic)"
+    },
+    {
+      "name": "Paragon Block Device Mounter",
+      "display": "Paragon Block Device Mounter"
+    },
+    {
+      "name": "Paragon Partition Manager",
+      "display": "Paragon Partition Manager"
+    },
+    {
+      "name": "Paragon Partition Manager (17.45.0)",
+      "display": "Paragon Partition Manager (17.45.0)"
+    },
+    {
+      "name": "Paragon Partition Manager 18 Community Edition (17.45.0)",
+      "display": "Paragon Partition Manager 18 Community Edition (17.45.0)"
+    },
+    {
+      "name": "Performance Monitor",
+      "display": "Performance Monitor"
+    },
+    {
+      "name": "Postman",
+      "display": "Postman"
+    },
+    {
+      "name": "Postman x64 12.21.0",
+      "display": "Postman x64 12.21.0"
+    },
+    {
+      "name": "PowerPoint",
+      "display": "PowerPoint"
+    },
+    {
+      "name": "Print Management",
+      "display": "Print Management"
+    },
+    {
+      "name": "Print Settings (kali-linux)",
+      "display": "Print Settings (kali-linux)"
+    },
+    {
+      "name": "Project",
+      "display": "Project"
+    },
+    {
+      "name": "Project Server Accounts",
+      "display": "Project Server Accounts"
+    },
+    {
+      "name": "PyDoc (Python 3.12)",
+      "display": "PyDoc (Python 3.12)"
+    },
+    {
+      "name": "PyDoc (Python 3.14)",
+      "display": "PyDoc (Python 3.14)"
+    },
+    {
+      "name": "Python 3.12",
+      "display": "Python 3.12"
+    },
+    {
+      "name": "Python 3.12 Manuals",
+      "display": "Python 3.12 Manuals"
+    },
+    {
+      "name": "Python 3.12 Online Documentation",
+      "display": "Python 3.12 Online Documentation"
+    },
+    {
+      "name": "Python 3.12.10",
+      "display": "Python 3.12.10"
+    },
+    {
+      "name": "Python 3.14",
+      "display": "Python 3.14"
+    },
+    {
+      "name": "Python 3.14 Manuals",
+      "display": "Python 3.14 Manuals"
+    },
+    {
+      "name": "Python 3.14 Online Documentation",
+      "display": "Python 3.14 Online Documentation"
+    },
+    {
+      "name": "Python 3.14.6",
+      "display": "Python 3.14.6"
+    },
+    {
+      "name": "QGIS Desktop 3.44.2",
+      "display": "QGIS Desktop 3.44.2"
+    },
+    {
+      "name": "Qt Designer with QGIS 3.44.2 custom widgets",
+      "display": "Qt Designer with QGIS 3.44.2 custom widgets"
+    },
+    {
+      "name": "Qt Linguist",
+      "display": "Qt Linguist"
+    },
+    {
+      "name": "Qwen",
+      "display": "Qwen"
+    },
+    {
+      "name": "Qwen 1.0.3",
+      "display": "Qwen 1.0.3"
+    },
+    {
+      "name": "RecoveryDrive",
+      "display": "RecoveryDrive"
+    },
+    {
+      "name": "Registry Editor",
+      "display": "Registry Editor"
+    },
+    {
+      "name": "Release Notes",
+      "display": "Release Notes"
+    },
+    {
+      "name": "Remote Desktop Connection",
+      "display": "Remote Desktop Connection"
+    },
+    {
+      "name": "Resource Monitor",
+      "display": "Resource Monitor"
+    },
+    {
+      "name": "Run",
+      "display": "Run"
+    },
+    {
+      "name": "Run DiskGenius",
+      "display": "Run DiskGenius"
+    },
+    {
+      "name": "SAGA GIS 9.8.1",
+      "display": "SAGA GIS 9.8.1"
+    },
+    {
+      "name": "SQLite",
+      "display": "SQLite"
+    },
+    {
+      "name": "Saves",
+      "display": "Saves"
+    },
+    {
+      "name": "Security Configuration Management",
+      "display": "Security Configuration Management"
+    },
+    {
+      "name": "Setup",
+      "display": "Setup"
+    },
+    {
+      "name": "Speech Recognition",
+      "display": "Speech Recognition"
+    },
+    {
+      "name": "Spreadsheet Compare",
+      "display": "Spreadsheet Compare"
+    },
+    {
+      "name": "Steps Recorder",
+      "display": "Steps Recorder"
+    },
+    {
+      "name": "System Configuration",
+      "display": "System Configuration"
+    },
+    {
+      "name": "System Information",
+      "display": "System Information"
+    },
+    {
+      "name": "Task Manager",
+      "display": "Task Manager"
+    },
+    {
+      "name": "Task Scheduler",
+      "display": "Task Scheduler"
+    },
+    {
+      "name": "TeXdoctk (kali-linux)",
+      "display": "TeXdoctk (kali-linux)"
+    },
+    {
+      "name": "USBPcap 1.5.4.0",
+      "display": "USBPcap 1.5.4.0"
+    },
+    {
+      "name": "UXTerm (kali-linux)",
+      "display": "UXTerm (kali-linux)"
+    },
+    {
+      "name": "Uninstall 4DDiG Partition Manager",
+      "display": "Uninstall 4DDiG Partition Manager"
+    },
+    {
+      "name": "Uninstall Cisco Packet Tracer",
+      "display": "Uninstall Cisco Packet Tracer"
+    },
+    {
+      "name": "Uninstall DiskGenius",
+      "display": "Uninstall DiskGenius"
+    },
+    {
+      "name": "Uninstall MyPublicWiFi",
+      "display": "Uninstall MyPublicWiFi"
+    },
+    {
+      "name": "Uninstall Node.js",
+      "display": "Uninstall Node.js"
+    },
+    {
+      "name": "Uninstall XAMPP",
+      "display": "Uninstall XAMPP"
+    },
+    {
+      "name": "VLC media player",
+      "display": "VLC media player"
+    },
+    {
+      "name": "VLC media player - reset preferences and cache files",
+      "display": "VLC media player - reset preferences and cache files"
+    },
+    {
+      "name": "VLC media player skinned",
+      "display": "VLC media player skinned"
+    },
+    {
+      "name": "VMCreate",
+      "display": "VMCreate"
+    },
+    {
+      "name": "VideoLAN Website",
+      "display": "VideoLAN Website"
+    },
+    {
+      "name": "Visual Studio Code",
+      "display": "Visual Studio Code"
+    },
+    {
+      "name": "VoiceAccess",
+      "display": "VoiceAccess"
+    },
+    {
+      "name": "WSL",
+      "display": "WSL"
+    },
+    {
+      "name": "WSL Settings",
+      "display": "WSL Settings"
+    },
+    {
+      "name": "Windows Defender Firewall with Advanced Security",
+      "display": "Windows Defender Firewall with Advanced Security"
+    },
+    {
+      "name": "Windows Media Player Legacy",
+      "display": "Windows Media Player Legacy"
+    },
+    {
+      "name": "Windows PowerShell",
+      "display": "Windows PowerShell"
+    },
+    {
+      "name": "Windows PowerShell (x86)",
+      "display": "Windows PowerShell (x86)"
+    },
+    {
+      "name": "Windows PowerShell ISE",
+      "display": "Windows PowerShell ISE"
+    },
+    {
+      "name": "Windows PowerShell ISE (x86)",
+      "display": "Windows PowerShell ISE (x86)"
+    },
+    {
+      "name": "Windows Subsystem for Linux",
+      "display": "Windows Subsystem for Linux"
+    },
+    {
+      "name": "Wireshark (kali-linux)",
+      "display": "Wireshark (kali-linux)"
+    },
+    {
+      "name": "Wireshark 4.6.6 x64",
+      "display": "Wireshark 4.6.6 x64"
+    },
+    {
+      "name": "Word",
+      "display": "Word"
+    },
+    {
+      "name": "Wordpad",
+      "display": "Wordpad"
+    },
+    {
+      "name": "XAMPP",
+      "display": "XAMPP"
+    },
+    {
+      "name": "XAMPP Control Panel",
+      "display": "XAMPP Control Panel"
+    },
+    {
+      "name": "XAMPP htdocs folder",
+      "display": "XAMPP htdocs folder"
+    },
+    {
+      "name": "XHydra (kali-linux)",
+      "display": "XHydra (kali-linux)"
+    },
+    {
+      "name": "XSSer (kali-linux)",
+      "display": "XSSer (kali-linux)"
+    },
+    {
+      "name": "XTerm (kali-linux)",
+      "display": "XTerm (kali-linux)"
+    },
+    {
+      "name": "Zenmap (as root) (kali-linux)",
+      "display": "Zenmap (as root) (kali-linux)"
+    },
+    {
+      "name": "Zenmap (kali-linux)",
+      "display": "Zenmap (kali-linux)"
+    },
+    {
+      "name": "Zim Desktop Wiki (kali-linux)",
+      "display": "Zim Desktop Wiki (kali-linux)"
+    },
+    {
+      "name": "dfrgui",
+      "display": "dfrgui"
+    },
+    {
+      "name": "edb (kali-linux)",
+      "display": "edb (kali-linux)"
+    },
+    {
+      "name": "iSCSI Initiator",
+      "display": "iSCSI Initiator"
+    },
+    {
+      "name": "services",
+      "display": "services"
+    }
+  ]
+}
