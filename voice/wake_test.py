@@ -1,8 +1,8 @@
 import os
+
 import numpy as np
 import sounddevice as sd
 from openwakeword.model import Model
-
 
 SAMPLE_RATE = 16000
 CHANNELS = 1
@@ -47,7 +47,7 @@ try:
     print("Press CTRL+C to stop.")
     print()
 
-except Exception as error:
+except (OSError, RuntimeError) as error:
     print("Model loading failed:")
     print(error)
     raise SystemExit(1)
@@ -70,7 +70,7 @@ def audio_callback(indata, frames, time, status):
             if score > 0.1:
                 print(f"{name}: {score:.3f}")
 
-    except Exception as error:
+    except (OSError, RuntimeError) as error:
         print(f"Prediction error: {error}")
 
 
@@ -92,7 +92,7 @@ except KeyboardInterrupt:
     print()
     print("Wake-word test stopped.")
 
-except Exception as error:
+except OSError as error:
 
     print()
     print("Audio error:")

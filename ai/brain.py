@@ -7,7 +7,6 @@ Intent; the planner can be swapped for a model-based implementation
 later behind the same plan() interface.
 """
 
-from ai.intent import Intent
 from ai.planner import FallbackPlanner
 
 

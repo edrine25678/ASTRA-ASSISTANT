@@ -6,12 +6,12 @@ The AI brain produces ToolCalls; the registry executes them under
 the safety policy.
 """
 
-from tools.base import AstraTool, Tool, ToolCall, ToolResult
-from tools.registry import ToolRegistry
-from tools.safety import ToolSafety
 from tools.application_tools import OpenApplicationTool
+from tools.base import AstraTool as AstraTool
+from tools.base import Tool as Tool
+from tools.base import ToolCall as ToolCall
+from tools.base import ToolResult as ToolResult
 from tools.browser_tools import OpenUrlTool, SearchWebTool
-from tools.system_tools import GetDateTool, GetTimeTool, SystemInfoTool
 from tools.file_tool import (
     FileCreateTextTool,
     FileDeleteTool,
@@ -21,6 +21,9 @@ from tools.file_tool import (
     FileReadTextTool,
     FileSearchTool,
 )
+from tools.registry import ToolRegistry
+from tools.safety import ToolSafety as ToolSafety
+from tools.system_tools import GetDateTool, GetTimeTool, SystemInfoTool
 
 
 def build_default_registry(safety=None):

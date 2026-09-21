@@ -4,10 +4,8 @@ File search with type / location / date awareness (spec sections
 """
 
 from config.settings import MAX_FILE_SEARCH_DEPTH
-
 from core.capabilities.base import Capability, CapabilityResult
 from core.intelligence.intent import FILE_SEARCH
-
 from tools.base import ToolCall
 
 

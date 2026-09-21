@@ -10,13 +10,17 @@ arbitrary processes, executing arbitrary code, ...) are not
 registered as tools, so they can never be reached.
 """
 
+from __future__ import annotations
+
+from typing import ClassVar
+
 from tools.base import ToolCall
 
 
 class ToolSafety:
 
     # Only these tools may be executed.  Anything else is denied.
-    ALLOWED_TOOLS = {
+    ALLOWED_TOOLS: ClassVar[set] = {
         "open_application",
         "open_url",
         "search_web",

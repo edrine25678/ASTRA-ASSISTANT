@@ -12,34 +12,32 @@ browser is ever opened.
 """
 
 import os
-import re
 import sys
 import tempfile
+from typing import ClassVar
 
 sys.path.insert(
     0,
     os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 )
 
-from datetime import datetime
+from datetime import datetime, timezone
 
 from core.brain import AstraBrain
 from core.capabilities import ApplicationDiscovery
 from core.intelligence import (
+    NLU,
     ConversationContext,
     Intent,
     IntentType,
-    NLU,
     ResponseGenerator,
     decide,
 )
 from core.intelligence.assistant import AstraAssistant
 from core.intelligence.router import entity_satisfied
-
 from tools.base import AstraTool, ToolResult
 from tools.registry import ToolRegistry
 from tools.safety import ToolSafety
-
 
 _PASS = 0
 _FAIL = 0
@@ -87,7 +85,7 @@ def _check_true(label, condition):
 # ==============================================
 
 class AllowAllSafety(ToolSafety):
-    ALLOWED_TOOLS = {
+    ALLOWED_TOOLS: ClassVar[set] = {
         "open_application",
         "open_url",
         "search_web",
@@ -167,7 +165,7 @@ def _stub_registry():
 
 class FakeDiscovery:
 
-    APPS = {
+    APPS: ClassVar[dict] = {
         "chrome": "chrome",
         "browser": "chrome",
         "notepad": "notepad",
@@ -665,7 +663,7 @@ def test_discovery_aliases_and_cache():
         {"name": "obsidian", "display": "Obsidian"},
     ]
 
-    discovery.scanned_at = datetime.now().isoformat()
+    discovery.scanned_at = datetime.now(tz=timezone.utc).isoformat()
 
     _check(
         "exact match",

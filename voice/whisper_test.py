@@ -1,8 +1,7 @@
-import sounddevice as sd
-import numpy as np
-import wave
 import os
+import wave
 
+import sounddevice as sd
 from faster_whisper import WhisperModel
 
 SAMPLE_RATE = 16000

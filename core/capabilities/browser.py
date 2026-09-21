@@ -4,7 +4,6 @@ Browser capability: open websites.
 
 from core.capabilities.base import Capability, CapabilityResult
 from core.intelligence.intent import OPEN_WEBSITE
-
 from tools.base import ToolCall
 
 

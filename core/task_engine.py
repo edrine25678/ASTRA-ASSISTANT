@@ -13,10 +13,9 @@ workers, no extra processes.  That keeps the footprint small on a
 
 import re
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 
 from core.logger import get_logger
-
 from tools.base import ToolCall
 
 logger = get_logger("core.task_engine")
@@ -105,8 +104,8 @@ class AstraTaskEngine:
     def __init__(self, registry, planner=None, observer=None,
                  confirmation=None, memory=None, context=None):
 
-        from core.observer import AstraObserver
         from core.confirmation import ConfirmationManager
+        from core.observer import AstraObserver
 
         self.registry = registry
         self.planner = planner
@@ -138,7 +137,7 @@ class AstraTaskEngine:
         task = Task(
             goal=goal.strip(),
             status=TaskState.PLANNING,
-            created_at=datetime.now().isoformat(timespec="seconds"),
+            created_at=datetime.now(tz=timezone.utc).isoformat(timespec="seconds"),
         )
 
         self.current_task = task
@@ -780,6 +779,6 @@ class AstraTaskEngine:
                 task.goal, task.status, detail=detail
             )
 
-        except Exception as error:
+        except (OSError, RuntimeError) as error:
 
             logger.warning("Could not store task record: %s", error)

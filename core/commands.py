@@ -1,7 +1,8 @@
+import os
 import subprocess
 import webbrowser
-import os
-from datetime import datetime
+from datetime import datetime, timezone
+from typing import ClassVar
 
 from core.intents import detect_intent
 
@@ -12,7 +13,7 @@ class AstraCommands:
     # APPLICATION REGISTRY
     # ==========================================
 
-    APP_ACTIONS = {
+    APP_ACTIONS: ClassVar[dict] = {
         "chrome": "open_chrome",
         "notepad": "open_notepad",
         "calculator": "open_calculator",
@@ -24,7 +25,7 @@ class AstraCommands:
         "chatgpt": "open_chatgpt",
     }
 
-    APP_RESPONSES = {
+    APP_RESPONSES: ClassVar[dict] = {
         "chrome": "Opening Chrome.",
         "notepad": "Opening Notepad.",
         "calculator": "Opening Calculator.",
@@ -121,7 +122,7 @@ class AstraCommands:
                 "time"
             ]
         ):
-            current_time = datetime.now().strftime("%I:%M %p")
+            current_time = datetime.now(tz=timezone.utc).strftime("%I:%M %p")
             return f"The current time is {current_time}."
 
         # ==========================================
@@ -138,7 +139,7 @@ class AstraCommands:
                 "current date"
             ]
         ):
-            current_date = datetime.now().strftime("%A, %B %d, %Y")
+            current_date = datetime.now(tz=timezone.utc).strftime("%A, %B %d, %Y")
             return f"Today is {current_date}."
 
         # ==========================================
@@ -247,7 +248,7 @@ class AstraCommands:
                 shell=True
             )
 
-        except Exception:
+        except OSError:
 
             return
 

@@ -21,10 +21,8 @@ sys.path.insert(
 
 from core.confirmation import ConfirmationManager
 from core.task_engine import AstraTaskEngine, TaskState, TaskStep
-
 from memory.context import ConversationContext
-
-from tools.base import ToolCall, ToolResult
+from tools.base import ToolResult
 
 _PASS = 0
 _FAIL = 0

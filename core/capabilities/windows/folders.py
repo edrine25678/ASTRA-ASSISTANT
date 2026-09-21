@@ -6,7 +6,6 @@ Folder opening and listing, plus "here" awareness (spec sections
 from core.capabilities.base import Capability, CapabilityResult
 from core.capabilities.windows.locations import resolve
 from core.intelligence.intent import FOLDER_OPERATION
-
 from tools.base import ToolCall
 
 

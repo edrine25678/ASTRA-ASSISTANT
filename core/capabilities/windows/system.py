@@ -10,7 +10,6 @@ from core.intelligence.intent import (
     MEMORY_STATUS,
     SYSTEM_INFORMATION,
 )
-
 from tools.base import ToolCall
 
 

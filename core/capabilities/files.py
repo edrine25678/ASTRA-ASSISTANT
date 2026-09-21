@@ -3,13 +3,7 @@ Files capability: route file intents to the file tools.
 """
 
 from core.capabilities.base import Capability, CapabilityResult
-from core.intelligence.intent import (
-    CREATE_FILE,
-    FILE_OPERATION,
-    LIST_FILES,
-    READ_FILE,
-)
-
+from core.intelligence.intent import CREATE_FILE, FILE_OPERATION, LIST_FILES, READ_FILE
 from tools.base import ToolCall
 
 

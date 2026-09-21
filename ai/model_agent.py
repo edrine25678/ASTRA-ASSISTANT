@@ -55,7 +55,7 @@ class ModelAgent:
                 ok, _, items = self.memory.recall(user_text, limit=3)
                 if ok:
                     memories = [item["content"] for item in items[:3]]
-            except Exception:
+            except (OSError, KeyError):
                 memories = []
 
         system = (
@@ -90,11 +90,11 @@ class ModelAgent:
         if isinstance(raw, str):
             raw = raw.strip()
             if raw.startswith("```"):
-                raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw, flags=re.I)
+                raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw, flags=re.IGNORECASE)
             raw = json.loads(raw)
 
         if not isinstance(raw, dict):
-            raise ValueError("Model response is not an object")
+            raise TypeError("Model response is not an object")
 
         kind = str(raw.get("type", "")).strip().lower()
 

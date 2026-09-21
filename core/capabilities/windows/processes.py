@@ -9,13 +9,8 @@ from core.intelligence.intent import (
     PROCESS_INFORMATION,
     RUNNING_APPLICATIONS,
 )
-
 from tools.base import ToolCall
-from tools.process_tools import (
-    SYSTEM_PROCESSES,
-    matching_processes,
-    snapshot_processes,
-)
+from tools.process_tools import SYSTEM_PROCESSES, matching_processes, snapshot_processes
 
 
 class ProcessesCapability(Capability):

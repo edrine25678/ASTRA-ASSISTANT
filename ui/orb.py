@@ -12,7 +12,6 @@ from PySide6.QtGui import QColor, QPainter, QPen, QRadialGradient
 from PySide6.QtWidgets import QWidget
 
 from config.settings import UI_ANIM_FPS
-
 from ui import theme
 from ui.state import ERROR, IDLE, LISTENING, SPEAKING, THINKING
 

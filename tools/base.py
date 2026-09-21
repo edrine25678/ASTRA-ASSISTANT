@@ -6,7 +6,10 @@ and the tool registry decides whether the operation is permitted,
 validates the arguments, and runs the tool.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
+from typing import ClassVar
 
 
 @dataclass
@@ -42,7 +45,7 @@ class Tool:
 
     name = ""
     description = ""
-    parameters = {}
+    parameters: ClassVar[dict] = {}
 
     # Set to True on a tool to require the user to confirm the
     # action before it actually runs.

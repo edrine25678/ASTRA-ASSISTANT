@@ -15,20 +15,18 @@ the browser.
 import os
 import sys
 import tempfile
+from typing import ClassVar
 
 sys.path.insert(
     0,
     os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 )
 
-from ai.intent import Intent, SYSTEM_QUERY
+from ai.intent import SYSTEM_QUERY, Intent
 from ai.provider import AIProviderError
-
 from core.brain import AstraBrain
-
 from tools.base import AstraTool, ToolCall, ToolResult
 from tools.safety import ToolSafety
-
 
 _PASS = 0
 _FAIL = 0
@@ -58,7 +56,7 @@ def _check(label, actual, expected):
 # ==============================================
 
 class AllowAllSafety(ToolSafety):
-    ALLOWED_TOOLS = {
+    ALLOWED_TOOLS: ClassVar[set] = {
         "open_application",
         "open_url",
         "search_web",
@@ -80,7 +78,7 @@ class ConfirmationTool(AstraTool):
 
     name = "confirm_me"
     description = "Test tool that always asks for confirmation"
-    parameters = {"value": {"type": "str", "required": True}}
+    parameters: ClassVar[dict] = {"value": {"type": "str", "required": True}}
     requires_confirmation = True
 
     def run(self, arguments):

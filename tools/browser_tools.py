@@ -6,7 +6,10 @@ proper domain or full URL also works, so every website never needs
 to be hard-coded.
 """
 
+from __future__ import annotations
+
 import webbrowser
+from typing import ClassVar
 from urllib.parse import quote
 
 from tools.base import Tool, ToolResult
@@ -16,12 +19,11 @@ class OpenUrlTool(Tool):
 
     name = "open_url"
     description = "Open a website in the default browser"
-    parameters = {
+    parameters: ClassVar[dict] = {
         "url": {"type": "str", "required": True}
     }
 
-    # Short name -> full URL.
-    KNOWN_SITES = {
+    KNOWN_SITES: ClassVar[dict] = {
         "youtube": "https://www.youtube.com",
         "google": "https://www.google.com",
         "gmail": "https://mail.google.com",
@@ -29,8 +31,7 @@ class OpenUrlTool(Tool):
         "github": "https://github.com",
     }
 
-    # Short name -> spoken confirmation.
-    KNOWN_SITE_NAMES = {
+    KNOWN_SITE_NAMES: ClassVar[dict] = {
         "youtube": "YouTube",
         "google": "Google",
         "gmail": "Gmail",
@@ -97,12 +98,12 @@ class SearchWebTool(Tool):
 
     name = "search_web"
     description = "Search the web with a search engine"
-    parameters = {
+    parameters: ClassVar[dict] = {
         "query": {"type": "str", "required": True},
         "engine": {"type": "str"},
     }
 
-    ENGINES = {
+    ENGINES: ClassVar[dict] = {
         "google": "https://www.google.com/search?q={}",
         "bing": "https://www.bing.com/search?q={}",
         "duckduckgo": "https://duckduckgo.com/?q={}",

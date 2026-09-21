@@ -4,7 +4,6 @@ Network status (spec section 20).
 
 from core.capabilities.base import Capability, CapabilityResult
 from core.intelligence.intent import NETWORK_STATUS
-
 from tools.base import ToolCall
 
 

@@ -22,7 +22,6 @@ sys.path.insert(
 
 from memory.manager import MemoryManager
 
-
 _PASS = 0
 _FAIL = 0
 
@@ -108,7 +107,7 @@ def test_categories():
     _check("preferences stored", counts.get("preferences"), 1)
     _check("facts stored", counts.get("facts"), 1)
 
-    ok, message, items = manager.recall(
+    ok, _message, items = manager.recall(
         None, category="preferences"
     )
 
@@ -131,7 +130,7 @@ def test_forget():
     _check("forget message", message, "Forgot 1 matching memory item(s).")
     _check("forget count", count, 1)
 
-    ok, message, items = manager.recall("milk")
+    ok, message, _items = manager.recall("milk")
 
     _check("forgotten item gone", ok, False)
 
@@ -154,7 +153,7 @@ def test_sensitive_rejection():
         "remember the wifi token",
     ]:
 
-        ok, message, item = manager.remember(sensitive)
+        ok, message, _item = manager.remember(sensitive)
 
         _check(f"rejected: {sensitive}", ok, False)
         _check(
@@ -163,7 +162,7 @@ def test_sensitive_rejection():
             "I will not store sensitive information like that.",
         )
 
-    ok, message, items = manager.recall()
+    ok, message, _items = manager.recall()
 
     _check("nothing sensitive stored", ok, False)
 
@@ -182,7 +181,7 @@ def test_pruning():
 
     _check("short_term pruned to 50", counts.get("short_term"), 50)
 
-    ok, message, items = manager.recall(None, category="short_term")
+    _ok, _message, items = manager.recall(None, category="short_term")
 
     _check("most recent kept", items[0]["content"], "note number 59")
 
@@ -224,7 +223,7 @@ def test_persistence():
 
     second = MemoryManager(path)
 
-    ok, message, items = second.recall("birthday")
+    ok, _message, items = second.recall("birthday")
 
     _check("survives reopen", ok, True)
     _check("content preserved", items[0]["content"], "my birthday is january first")
@@ -239,12 +238,12 @@ def test_disabled():
 
     manager = MemoryManager(None, enabled=False)
 
-    ok, message, item = manager.remember("anything")
+    ok, message, _item = manager.remember("anything")
 
     _check("remember disabled", ok, False)
     _check("disabled message", message, "Memory is disabled.")
 
-    ok, message, items = manager.recall()
+    ok, message, _items = manager.recall()
 
     _check("recall disabled", ok, False)
 

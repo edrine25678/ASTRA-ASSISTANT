@@ -6,6 +6,8 @@ automatically; anything at or above the configured threshold asks
 the user first.
 """
 
+from typing import ClassVar
+
 from tools.base import ToolCall
 
 
@@ -29,7 +31,7 @@ class ConfirmationManager:
 
     # Tool name -> risk level.  Unknown tools default to HIGH so an
     # unfamiliar capability can never run silently.
-    _TOOL_RISKS = {
+    _TOOL_RISKS: ClassVar[dict] = {
         "open_application": RiskLevels.LOW,
         "open_url": RiskLevels.LOW,
         "search_web": RiskLevels.LOW,

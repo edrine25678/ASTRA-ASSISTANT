@@ -6,6 +6,14 @@ the ToolCalls those intents carry.  An optional AI provider adds
 knowledge answers on top of the deterministic planner.
 """
 
+from ai.brain import AIBrain
+from ai.cloud_provider import CloudProvider
+from ai.intent import Intent
+from ai.local_provider import LocalProvider
+from ai.model_agent import ModelAgent
+from ai.ollama_provider import OllamaProvider
+from ai.planner import FallbackPlanner
+from ai.provider import AIProvider, AIProviderError, UnavailableProvider
 from config.settings import (
     AI_MODEL,
     AI_PROVIDER,
@@ -14,15 +22,6 @@ from config.settings import (
     ASTRA_OLLAMA_BASE,
     ASTRA_OLLAMA_TIMEOUT,
 )
-
-from ai.intent import Intent
-from ai.brain import AIBrain
-from ai.planner import FallbackPlanner
-from ai.provider import AIProvider, AIProviderError, UnavailableProvider
-from ai.local_provider import LocalProvider
-from ai.ollama_provider import OllamaProvider
-from ai.cloud_provider import CloudProvider
-from ai.model_agent import ModelAgent
 
 
 def build_provider():
@@ -63,10 +62,10 @@ __all__ = [
     "AIProvider",
     "AIProviderError",
     "CloudProvider",
-    "ModelAgent",
     "FallbackPlanner",
     "Intent",
     "LocalProvider",
+    "ModelAgent",
     "OllamaProvider",
     "UnavailableProvider",
     "build_provider",

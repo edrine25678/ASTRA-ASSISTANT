@@ -13,19 +13,8 @@ proven; NLU refines only what the planner could not resolve.
 
 import re
 
-from ai.intent import (
-    APPLICATION_ACTION,
-    BROWSER_ACTION,
-    EXIT as PLANNER_EXIT,
-    UNKNOWN as PLANNER_UNKNOWN,
-)
-
-from core.intelligence.intent import (
-    Intent,
-    IntentType,
-    PLANNER_TO_INTENT,
-)
-
+from ai.intent import UNKNOWN as PLANNER_UNKNOWN
+from core.intelligence.intent import PLANNER_TO_INTENT, Intent, IntentType
 
 # ==============================================
 # SIGNAL GROUPS (synonyms per intent)
@@ -1063,10 +1052,10 @@ class NLU:
             return 7
 
         if re.search(r"\bthis\s+week\b", lower):
-            return datetime.date.today().weekday()
+            return datetime.datetime.now(tz=datetime.timezone.utc).date().weekday()
 
         if re.search(r"\bthis\s+month\b", lower):
-            return max(datetime.date.today().day - 1, 1)
+            return max(datetime.datetime.now(tz=datetime.timezone.utc).date().day - 1, 1)
 
         return None
 

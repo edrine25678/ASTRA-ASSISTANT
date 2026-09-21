@@ -21,7 +21,6 @@ import re
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 
-
 OPEN_APPLICATION = "OPEN_APPLICATION"
 
 OPEN_VERBS = ("open", "launch", "start", "run", "opening")

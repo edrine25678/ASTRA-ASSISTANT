@@ -8,8 +8,7 @@ interface.
 """
 
 import re
-
-from core.intents import OPEN_VERBS, detect_intent
+from typing import ClassVar
 
 from ai.intent import (
     APPLICATION_ACTION,
@@ -19,15 +18,15 @@ from ai.intent import (
     EXIT,
     FILE_ACTION,
     FOLLOW_UP,
-    Intent,
     KNOWLEDGE,
     MEMORY_ACTION,
     SYSTEM_QUERY,
     TASK,
     TASK_CONTROL,
     UNKNOWN,
+    Intent,
 )
-
+from core.intents import OPEN_VERBS, detect_intent
 from tools.base import ToolCall
 
 
@@ -242,7 +241,7 @@ class FallbackPlanner:
         "open the next one",
     )
 
-    ORDINAL_INDEX = {
+    ORDINAL_INDEX: ClassVar[dict] = {
         "first": 0,
         "second": 1,
         "third": 2,
@@ -265,12 +264,12 @@ class FallbackPlanner:
     # CLARIFICATION
     # ==============================================
 
-    CLARIFICATION_YES = {
+    CLARIFICATION_YES: ClassVar[set] = {
         "yes", "yeah", "yep", "y", "sure", "ok", "okay",
         "alright", "fine", "uh huh", "go ahead",
     }
 
-    CLARIFICATION_NO = {
+    CLARIFICATION_NO: ClassVar[set] = {
         "no", "nope", "n", "nah", "not now",
     }
 
@@ -305,7 +304,7 @@ class FallbackPlanner:
 
     DELETE_PATTERN = re.compile(r"^delete\s+(?:the\s+|this\s+|that\s+)?(.+)$")
 
-    KNOWN_FOLDERS = {
+    KNOWN_FOLDERS: ClassVar[dict] = {
         "desktop": "desktop",
         "documents": "documents",
         "my documents": "documents",
@@ -813,10 +812,7 @@ class FallbackPlanner:
 
         intent = self.plan(part)
 
-        if intent.type in (UNKNOWN,):
-            return False
-
-        return True
+        return intent.type not in (UNKNOWN,)
 
     def _file_intent(self, raw, text):
 

@@ -9,14 +9,15 @@ never modify its own source code.  Deletion is the only operation
 that permanently removes data, so it requires confirmation.
 """
 
+from __future__ import annotations
+
 import os
-from datetime import datetime
+from datetime import datetime, timezone
+from typing import ClassVar
 
 from config.settings import PROJECT_ROOT
-
-from tools.base import AstraTool, ToolResult
-
 from core.logger import get_logger
+from tools.base import AstraTool, ToolResult
 
 logger = get_logger("tools.file")
 
@@ -98,7 +99,7 @@ def _notes_path():
 
 def _modified_since_days(since):
 
-    today = datetime.now().date()
+    today = datetime.now(tz=timezone.utc).date()
 
     if since == "today":
         return 0
@@ -117,7 +118,7 @@ class FileSearchTool(AstraTool):
     name = "file_search"
     description = ("Search for files in allowed folders (Desktop, "
                    "Documents, Downloads, Pictures, Videos, Music)")
-    parameters = {
+    parameters: ClassVar[dict] = {
         "query": {"type": "str"},
         "extensions": {"type": "list"},
         "modified_since": {"type": "str"},
@@ -222,12 +223,13 @@ class FileSearchTool(AstraTool):
 
                         try:
                             modified = datetime.fromtimestamp(
-                                os.path.getmtime(path)
+                                os.path.getmtime(path),
+                                tz=timezone.utc,
                             ).date()
                         except OSError:
                             continue
 
-                        delta = (datetime.now().date() - modified).days
+                        delta = (datetime.now(tz=timezone.utc).date() - modified).days
 
                         if delta > days:
                             continue
@@ -277,7 +279,7 @@ class FileListDirectoryTool(AstraTool):
 
     name = "file_list_directory"
     description = "List the contents of a folder"
-    parameters = {"path": {"type": "str", "required": True}}
+    parameters: ClassVar[dict] = {"path": {"type": "str", "required": True}}
 
     def __init__(self, allowed_roots=None):
         self.roots = allowed_roots or _default_roots()
@@ -314,7 +316,7 @@ class FileOpenFileTool(AstraTool):
 
     name = "file_open_file"
     description = "Open a file with its default application"
-    parameters = {"path": {"type": "str", "required": True}}
+    parameters: ClassVar[dict] = {"path": {"type": "str", "required": True}}
 
     def __init__(self, allowed_roots=None):
         self.roots = allowed_roots or _default_roots()
@@ -344,7 +346,7 @@ class FileOpenFolderTool(AstraTool):
 
     name = "file_open_folder"
     description = "Open a folder in File Explorer"
-    parameters = {"path": {"type": "str", "required": True}}
+    parameters: ClassVar[dict] = {"path": {"type": "str", "required": True}}
 
     def __init__(self, allowed_roots=None):
         self.roots = allowed_roots or _default_roots()
@@ -378,7 +380,7 @@ class FileReadTextTool(AstraTool):
 
     name = "file_read_text"
     description = "Read the beginning of a text file"
-    parameters = {"path": {"type": "str", "required": True}}
+    parameters: ClassVar[dict] = {"path": {"type": "str", "required": True}}
 
     MAX_CHARS = 4000
 
@@ -427,7 +429,7 @@ class FileCreateTextTool(AstraTool):
 
     name = "file_create_text"
     description = "Create a text file (confirmation required)"
-    parameters = {
+    parameters: ClassVar[dict] = {
         "path": {"type": "str"},
         "content": {"type": "str", "required": True},
     }
@@ -491,7 +493,7 @@ class FileDeleteTool(AstraTool):
 
     name = "file_delete"
     description = "Delete a file (confirmation required)"
-    parameters = {"path": {"type": "str", "required": True}}
+    parameters: ClassVar[dict] = {"path": {"type": "str", "required": True}}
 
     requires_confirmation = True
 

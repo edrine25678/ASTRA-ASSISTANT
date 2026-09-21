@@ -20,7 +20,6 @@ sys.path.insert(
 from core.commands import AstraCommands
 from core.intents import OPEN_APPLICATION, detect_intent, normalize_text
 
-
 _PASS = 0
 _FAIL = 0
 

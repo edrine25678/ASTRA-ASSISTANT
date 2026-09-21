@@ -11,7 +11,6 @@ import os
 
 from config.settings import LOG_DIR, LOG_LEVEL
 
-
 _configured = False
 
 _FORMAT = "[%(levelname)s] %(message)s"

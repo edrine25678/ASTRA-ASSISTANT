@@ -9,9 +9,7 @@ the plan through the tool registry.
 import re
 
 from ai.planner import FallbackPlanner
-
 from core.logger import get_logger
-
 from core.task_engine import TaskStep
 
 logger = get_logger("core.planner")
@@ -149,4 +147,3 @@ class AstraPlanner:
             observation,
         )
 
-        return None

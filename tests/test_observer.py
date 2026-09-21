@@ -16,7 +16,6 @@ sys.path.insert(
 )
 
 from core.observer import AstraObserver
-
 from tools.base import ToolResult
 
 _PASS = 0

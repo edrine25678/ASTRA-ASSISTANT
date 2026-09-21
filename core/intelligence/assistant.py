@@ -17,18 +17,14 @@ The assistant never guesses on pronouns: "Open it." and
 "Delete that folder." always produce a clarifying question.
 """
 
+from ai.model_agent import ModelAgent
 from core.brain import AstraBrain, BrainResponse
-from core.capabilities import (
-    ApplicationDiscovery,
-    build_capability_registry,
-)
+from core.capabilities import ApplicationDiscovery, build_capability_registry
 from core.intelligence.context import ConversationContext
 from core.intelligence.intent import Intent, IntentType
 from core.intelligence.nlu import FILE_PRONOUN, NLU
 from core.intelligence.response import ResponseGenerator
 from core.intelligence.router import decide, entity_satisfied
-from ai.model_agent import ModelAgent
-
 from tools.base import ToolCall
 from tools.process_tools import CloseApplicationTool
 
@@ -39,8 +35,8 @@ YES_PHRASES = ("yes", "yeah", "yep", "sure", "ok", "okay", "do it",
 
 FALLBACK_RESPONSES = (
     "I don't know how to do that yet.",
-    "I'm unable to access my conversational AI right now, "
-    "but my local tools are still available.",
+    ("I'm unable to access my conversational AI right now, "
+    "but my local tools are still available."),
 )
 
 ANSWER_KIND = {
@@ -75,8 +71,8 @@ class AstraAssistant:
 
             try:
                 self.registry.register(CloseApplicationTool())
-            except Exception:
-                pass
+            except (ImportError, OSError):
+                pass  # CloseApplicationTool unavailable on this platform
 
         self.discovery = (
             discovery if discovery is not None else ApplicationDiscovery()

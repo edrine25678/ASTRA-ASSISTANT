@@ -11,6 +11,7 @@ primitives, so they can be called from any thread.  Everything else
 runs on the worker thread.
 """
 
+import logging
 import queue
 import threading
 import time
@@ -18,8 +19,9 @@ import time
 from PySide6.QtCore import QObject, Signal
 
 from config.settings import CONVERSATION_TIMEOUT
-
 from ui.state import LISTENING, THINKING
+
+logger = logging.getLogger(__name__)
 
 
 def provider_label(provider):
@@ -122,7 +124,8 @@ class VoiceWorker(QObject):
     def _run(self):
         try:
             self._build_voice_components()
-        except Exception as error:
+        except (OSError, RuntimeError, ImportError) as error:
+            logger.exception("Could not start Astra")
             self._signals.error_occurred.emit(
                 f"Could not start Astra: {error}"
             )
@@ -170,7 +173,8 @@ class VoiceWorker(QObject):
                     stop_event=self._stop,
                     break_event=self._wake_break,
                 )
-            except Exception as error:
+            except (OSError, RuntimeError) as error:
+                logger.exception("Wake-word listener problem")
                 self._signals.error_occurred.emit(
                     f"Wake-word listener problem: {error}"
                 )
@@ -262,7 +266,8 @@ class VoiceWorker(QObject):
     def _listen_once(self):
         try:
             return (self._whisper.listen() or "").strip()
-        except Exception as error:
+        except (OSError, RuntimeError) as error:
+            logger.exception("Speech recognition problem")
             self._signals.error_occurred.emit(
                 f"Speech recognition problem: {error}"
             )
@@ -274,7 +279,8 @@ class VoiceWorker(QObject):
 
         try:
             result = self._assistant.process(text)
-        except Exception as error:
+        except (OSError, RuntimeError, ValueError) as error:
+            logger.exception("Processing problem")
             self._signals.error_occurred.emit(
                 f"Processing problem: {error}"
             )
@@ -302,7 +308,8 @@ class VoiceWorker(QObject):
 
         try:
             self._speaker.speak(text)
-        except Exception as error:
+        except (OSError, RuntimeError) as error:
+            logger.exception("Speech output problem")
             self._signals.error_occurred.emit(
                 f"Speech output problem: {error}"
             )
@@ -351,7 +358,8 @@ class VoiceWorker(QObject):
 
             if not self._stop.is_set():
                 self._signals.provider_status.emit(label, available)
-        except Exception:
+        except (OSError, RuntimeError, ImportError):
+            logger.exception("Provider check failed")
             if not self._stop.is_set():
                 self._signals.provider_status.emit(
                     "Local AI engine unavailable", False

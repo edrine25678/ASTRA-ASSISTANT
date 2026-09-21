@@ -51,10 +51,7 @@ def entity_satisfied(intent):
     if intent.entities.get("path"):
         return True
 
-    if intent.entities.get("action") and intent.entities.get("path"):
-        return True
-
-    return False
+    return bool(intent.entities.get("action") and intent.entities.get("path"))
 
 
 def decide(intent):

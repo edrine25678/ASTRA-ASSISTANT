@@ -1,15 +1,11 @@
-import sounddevice as sd
-import numpy as np
-import webrtcvad
-
 from collections import deque
+
+import numpy as np
+import sounddevice as sd
+import webrtcvad
 from faster_whisper import WhisperModel
 
-from config.settings import (
-    WHISPER_COMPUTE_TYPE,
-    WHISPER_DEVICE,
-    WHISPER_MODEL,
-)
+from config.settings import WHISPER_COMPUTE_TYPE, WHISPER_DEVICE, WHISPER_MODEL
 
 
 class AstraWhisper:
@@ -110,7 +106,7 @@ class AstraWhisper:
             self.frame_duration
         )
 
-        silence_frames_required = int(
+        int(
             self.silence_duration *
             1000 /
             self.frame_duration
@@ -299,7 +295,7 @@ class AstraWhisper:
         # WHISPER
         # ==========================================
 
-        segments, info = self.model.transcribe(
+        segments, _info = self.model.transcribe(
 
             audio,
 
@@ -368,24 +364,22 @@ class AstraWhisper:
 
         for word in words:
 
-            if len(cleaned) >= 3:
+            if len(cleaned) >= 3 and (
+                cleaned[-1].lower()
+                == word.lower()
 
-                if (
-                    cleaned[-1].lower()
-                    == word.lower()
+                and
 
-                    and
+                cleaned[-2].lower()
+                == word.lower()
 
-                    cleaned[-2].lower()
-                    == word.lower()
+                and
 
-                    and
+                cleaned[-3].lower()
+                == word.lower()
+            ):
 
-                    cleaned[-3].lower()
-                    == word.lower()
-                ):
-
-                    continue
+                continue
 
             cleaned.append(word)
 

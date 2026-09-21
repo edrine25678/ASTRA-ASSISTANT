@@ -4,11 +4,10 @@ System capability: time and date.
 Machine information moved to core.capabilities.windows in Phase 7.
 """
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from core.capabilities.base import Capability, CapabilityResult
 from core.intelligence.intent import GET_DATE, GET_TIME
-
 from tools.base import ToolCall
 
 
@@ -51,7 +50,7 @@ class SystemCapability(Capability):
     @staticmethod
     def _date_for(day):
 
-        today = datetime.now()
+        today = datetime.now(tz=timezone.utc)
 
         if day == "tomorrow":
             return (

@@ -24,7 +24,6 @@ from core.state import (
     AstraState,
 )
 
-
 _PASS = 0
 _FAIL = 0
 

@@ -4,7 +4,6 @@ Launches the floating-interface voice assistant.  If the Qt
 dependency is missing, falls back to the classic console mode.
 """
 
-import sys
 
 
 def main():

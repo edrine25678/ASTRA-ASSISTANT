@@ -15,12 +15,10 @@ import json
 import os
 import re
 import winreg
-from datetime import datetime
+from datetime import datetime, timezone
 
-from config.settings import APP_CACHE_PATH, APP_CACHE_MAX_AGE_DAYS
-
+from config.settings import APP_CACHE_MAX_AGE_DAYS, APP_CACHE_PATH
 from core.intents import APP_ALIASES
-
 from core.logger import get_logger
 
 logger = get_logger("core.capabilities.discovery")
@@ -131,7 +129,7 @@ class ApplicationDiscovery:
             scanned = datetime.fromisoformat(self.scanned_at)
 
             return (
-                datetime.now() - scanned
+                datetime.now(tz=timezone.utc) - scanned
             ).days < self.max_age_days
 
         except ValueError:
@@ -162,7 +160,7 @@ class ApplicationDiscovery:
             for name, display in sorted(found.items())
         ]
 
-        self.scanned_at = datetime.now().isoformat()
+        self.scanned_at = datetime.now(tz=timezone.utc).isoformat()
 
         self._save_cache()
 
@@ -257,9 +255,7 @@ class ApplicationDiscovery:
         # Known app aliases in the middle of a phrase ("my browser").
         for alias, app in _KNOWN_ALIASES.items():
 
-            if re.search(r"\b" + re.escape(alias) + r"\b", key):
-
-                if len(alias) > 2:
+            if re.search(r"\b" + re.escape(alias) + r"\b", key) and len(alias) > 2:
                     return self._info(app, phrase)
 
         if not self.apps:

@@ -1,10 +1,13 @@
+import logging
 import os
+
 import numpy as np
 import sounddevice as sd
-
 from openwakeword.model import Model
 
 from config.settings import WAKE_WORD_MODEL, WAKE_WORD_THRESHOLD
+
+logger = logging.getLogger(__name__)
 
 
 class AstraWakeWord:
@@ -50,8 +53,8 @@ class AstraWakeWord:
                 candidates.append(
                     os.path.join(package_dir, "resources", "models", requested)
                 )
-            except Exception:
-                pass
+            except (ImportError, OSError):
+                logger.debug("Could not locate openwakeword package dir", exc_info=True)
 
             candidates.append(
                 os.path.join(

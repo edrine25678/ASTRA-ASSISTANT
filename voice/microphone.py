@@ -1,6 +1,5 @@
-import sounddevice as sd
 import numpy as np
-
+import sounddevice as sd
 
 SAMPLE_RATE = 16000
 CHANNELS = 1
@@ -45,7 +44,7 @@ except KeyboardInterrupt:
     print()
     print("Astra microphone stream stopped.")
 
-except Exception as error:
+except OSError as error:
     print()
     print("Microphone error:")
     print(error)

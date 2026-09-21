@@ -8,27 +8,28 @@ small table of Windows shell targets.  When nothing is found, the
 tool reports gracefully instead of failing.
 """
 
+from __future__ import annotations
+
+import glob
 import os
 import re
 import subprocess
-import glob
 from shutil import which
-
-from tools.base import Tool, ToolResult
+from typing import ClassVar
 
 from core.intents import canonical
+from tools.base import Tool, ToolResult
 
 
 class OpenApplicationTool(Tool):
 
     name = "open_application"
     description = "Open an installed Windows application"
-    parameters = {
+    parameters: ClassVar[dict] = {
         "application": {"type": "str", "required": True}
     }
 
-    # Canonical name -> spoken confirmation.
-    RESPONSES = {
+    RESPONSES: ClassVar[dict] = {
         "chrome": "Opening Chrome.",
         "notepad": "Opening Notepad.",
         "calculator": "Opening Calculator.",
@@ -36,7 +37,7 @@ class OpenApplicationTool(Tool):
         "vs code": "Opening Visual Studio Code.",
     }
 
-    CHROME_PATHS = [
+    CHROME_PATHS: ClassVar[list] = [
         r"C:\Program Files\Google\Chrome\Application\chrome.exe",
         r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
         os.path.expandvars(
@@ -46,14 +47,14 @@ class OpenApplicationTool(Tool):
 
     # Fallbacks for well-known targets that are not executables on
     # the PATH.  "start" means: hand the string to the shell.
-    SHELL_TARGETS = {
+    SHELL_TARGETS: ClassVar[dict] = {
         "settings": "ms-settings:",
         "windows settings": "ms-settings:",
         "control panel": "control",
         "file explorer": "explorer.exe",
     }
 
-    START_MENU_ROOTS = [
+    START_MENU_ROOTS: ClassVar[list] = [
         os.path.expandvars(r"%APPDATA%\Microsoft\Windows\Start Menu\Programs"),
         os.path.expandvars(r"%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"),
     ]

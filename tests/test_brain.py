@@ -36,7 +36,6 @@ from ai.intent import (
 )
 from tools import build_default_registry
 
-
 _PASS = 0
 _FAIL = 0
 

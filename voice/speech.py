@@ -3,7 +3,7 @@ import os
 import queue
 
 import sounddevice as sd
-from vosk import Model, KaldiRecognizer
+from vosk import KaldiRecognizer, Model
 
 
 class AstraSpeech:
@@ -81,5 +81,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\nSpeech test stopped.")
 
-    except Exception as e:
+    except OSError as e:
         print(f"\nSpeech error: {e}")

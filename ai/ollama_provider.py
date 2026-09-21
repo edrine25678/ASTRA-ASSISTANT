@@ -71,7 +71,7 @@ class OllamaProvider(AIProvider):
                 body = json.loads(response.read().decode("utf-8"))
             models = {item.get("name") for item in body.get("models", [])}
             return self.model_name in models
-        except Exception:
+        except (OSError, ValueError):
             return False
 
     def close(self):

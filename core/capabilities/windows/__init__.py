@@ -5,9 +5,7 @@ Every capability here is read-only or confirmation-gated.  Nothing
 ever builds or executes a raw shell command from user speech.
 """
 
-from core.capabilities.windows.applications import (
-    WindowsApplicationsCapability,
-)
+from core.capabilities.windows.applications import WindowsApplicationsCapability
 from core.capabilities.windows.files import WindowsFilesCapability
 from core.capabilities.windows.folders import WindowsFoldersCapability
 from core.capabilities.windows.network import NetworkCapability

@@ -17,7 +17,6 @@ sys.path.insert(
 )
 
 from core.confirmation import ConfirmationManager, RiskLevels
-
 from tools.base import ToolCall
 
 _PASS = 0

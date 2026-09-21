@@ -21,7 +21,6 @@ sys.path.insert(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 )
 
-from tools.base import ToolCall, ToolResult
 from tools.file_tool import (
     FileCreateTextTool,
     FileDeleteTool,

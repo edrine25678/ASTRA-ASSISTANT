@@ -13,15 +13,7 @@ picks the same variant within a process, chosen by hash.
 import re
 from dataclasses import dataclass
 
-from config.settings import MEMORY_DB_PATH, MEMORY_ENABLED
-
-from core.logger import get_logger
-
-from core.confirmation import ConfirmationManager
-from core.observer import AstraObserver
-from core.planner import AstraPlanner
-from core.task_engine import AstraTaskEngine, TaskState
-
+from ai import build_provider
 from ai.brain import AIBrain
 from ai.intent import (
     APPLICATION_ACTION,
@@ -32,17 +24,18 @@ from ai.intent import (
     FOLLOW_UP,
     KNOWLEDGE,
     MEMORY_ACTION,
-    SYSTEM_QUERY,
     TASK,
     TASK_CONTROL,
-    UNKNOWN,
 )
 from ai.provider import AIProviderError
-from ai import build_provider
-
+from config.settings import MEMORY_DB_PATH, MEMORY_ENABLED
+from core.confirmation import ConfirmationManager
+from core.logger import get_logger
+from core.observer import AstraObserver
+from core.planner import AstraPlanner
+from core.task_engine import AstraTaskEngine, TaskState
 from memory.context import ConversationContext
 from memory.manager import MemoryManager
-
 from tools import build_default_registry
 from tools.base import ToolCall
 
@@ -340,7 +333,7 @@ class AstraBrain:
 
         try:
             self.memory.remember(text, category="short_term")
-        except Exception as error:
+        except (OSError, RuntimeError) as error:
             logger.warning("Could not store short-term memory: %s", error)
 
     def _handle_memory(self, intent):
@@ -408,7 +401,7 @@ class AstraBrain:
 
                 return self._respond(response, intent.raw_text)
 
-        except Exception as error:
+        except Exception:
 
             logger.exception("Memory action %s failed", action)
 

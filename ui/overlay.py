@@ -14,11 +14,11 @@ from PySide6.QtCore import (
     QAbstractAnimation,
     QEasingCurve,
     QPropertyAnimation,
-    QTimer,
     Qt,
+    QTimer,
     Signal,
 )
-from PySide6.QtGui import QColor, QFont, QLinearGradient, QPainter, QPen
+from PySide6.QtGui import QFont, QLinearGradient, QPainter, QPen
 from PySide6.QtWidgets import (
     QGraphicsOpacityEffect,
     QHBoxLayout,
@@ -26,17 +26,11 @@ from PySide6.QtWidgets import (
     QLineEdit,
     QPushButton,
     QScrollArea,
-    QSizePolicy,
     QVBoxLayout,
     QWidget,
 )
 
-from config.settings import (
-    UI_FADE_IN_MS,
-    UI_FADE_OUT_MS,
-    UI_AUTO_HIDE_SECONDS,
-)
-
+from config.settings import UI_AUTO_HIDE_SECONDS, UI_FADE_IN_MS, UI_FADE_OUT_MS
 from ui import theme
 from ui.orb import AstraOrb
 from ui.state import ERROR, IDLE, LISTENING, SPEAKING, THINKING
@@ -365,12 +359,10 @@ class AstraOverlay(QWidget):
         x = self.x()
         y = self.y()
 
-        if x < geo.x():
-            x = geo.x()
+        x = max(x, geo.x())
         if x + self.width() > geo.x() + geo.width():
             x = geo.x() + geo.width() - self.width()
-        if y < geo.y():
-            y = geo.y()
+        y = max(y, geo.y())
 
         self.move(x, y)
 

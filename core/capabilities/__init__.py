@@ -2,17 +2,13 @@
 Capability registry and the built-in capabilities.
 """
 
-from core.capabilities.base import (
-    Capability,
-    CapabilityRegistry,
-    CapabilityResult,
-)
-from core.capabilities.discovery import ApplicationDiscovery
 from core.capabilities.applications import ApplicationsCapability
+from core.capabilities.base import Capability, CapabilityRegistry, CapabilityResult
 from core.capabilities.browser import BrowserCapability
+from core.capabilities.discovery import ApplicationDiscovery
+from core.capabilities.files import FilesCapability
 from core.capabilities.search import SearchCapability
 from core.capabilities.system import SystemCapability
-from core.capabilities.files import FilesCapability
 from core.capabilities.windows import (
     NetworkCapability,
     ProcessesCapability,

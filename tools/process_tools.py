@@ -9,12 +9,14 @@ processes are blacklisted and Astra never terminates itself.
 Closing is destructive, so the tool always requires confirmation.
 """
 
+from __future__ import annotations
+
 import ctypes
 import ctypes.wintypes
-
-from tools.base import AstraTool, ToolResult
+from typing import ClassVar
 
 from core.logger import get_logger
+from tools.base import AstraTool, ToolResult
 
 logger = get_logger("tools.process")
 
@@ -31,7 +33,7 @@ SYSTEM_PROCESSES = {
     "sihost", "taskhostw", "runtimebroker", "fontdrvhost", "conhost",
     "searchindexer", "shellexperiencehost", "startmenuexperiencehost",
     "dllhost", "backgroundtaskhost", "ctfmon", "regsvc", "msmpeng",
-    "audiodg", "winlogon", "winsrv", "sessmgr", "logonui",
+    "audiodg", "winsrv", "sessmgr", "logonui",
 }
 
 
@@ -150,7 +152,7 @@ class CloseApplicationTool(AstraTool):
 
     name = "close_application"
     description = "Close a running application (confirmation required)"
-    parameters = {"application": {"type": "str", "required": True}}
+    parameters: ClassVar[dict] = {"application": {"type": "str", "required": True}}
 
     requires_confirmation = True
 

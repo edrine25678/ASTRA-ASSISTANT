@@ -16,7 +16,7 @@ class AstraObserver:
 
         if result.denied:
             summary = result.response or (
-                f"That action is not permitted."
+                "That action is not permitted."
             )
         elif result.needs_confirmation:
             summary = result.response or "Confirmation requested."

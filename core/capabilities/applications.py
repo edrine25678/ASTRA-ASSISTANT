@@ -6,7 +6,6 @@ Closing moved to core.capabilities.windows.processes in Phase 7.
 
 from core.capabilities.base import Capability, CapabilityResult
 from core.intelligence.intent import OPEN_APPLICATION
-
 from tools.base import ToolCall
 
 

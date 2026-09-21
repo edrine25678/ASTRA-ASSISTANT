@@ -1,6 +1,10 @@
+import logging
+
 import pyttsx3
 
 from config.settings import VOICE_RATE
+
+logger = logging.getLogger(__name__)
 
 
 class AstraSpeaker:
@@ -55,8 +59,9 @@ class AstraSpeaker:
 
             print("[TTS] Speech completed.")
 
-        except Exception as error:
+        except (OSError, RuntimeError) as error:
 
+            logger.exception("TTS speech error")
             print(
                 f"[TTS] Speech error: {error}"
             )
@@ -66,8 +71,8 @@ class AstraSpeaker:
         try:
             self.engine.stop()
 
-        except Exception:
-            pass
+        except (OSError, RuntimeError):
+            logger.debug("TTS engine stop failed", exc_info=True)
 
 
 if __name__ == "__main__":

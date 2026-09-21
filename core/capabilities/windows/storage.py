@@ -4,7 +4,6 @@ Storage drives (spec section 6).
 
 from core.capabilities.base import Capability, CapabilityResult
 from core.intelligence.intent import STORAGE_STATUS
-
 from tools.base import ToolCall
 
 

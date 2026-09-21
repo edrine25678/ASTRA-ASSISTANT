@@ -4,7 +4,6 @@ Web search capability.
 
 from core.capabilities.base import Capability, CapabilityResult
 from core.intelligence.intent import SEARCH_WEB
-
 from tools.base import ToolCall
 
 

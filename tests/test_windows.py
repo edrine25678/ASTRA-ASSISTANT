@@ -9,38 +9,26 @@ close-tool protections, and graceful degradation.
 Run: python -m tests.test_windows
 """
 
-import datetime
 import os
-import re
 import sys
-import unittest
+from typing import ClassVar
 
 from core.brain import AstraBrain
-from core.capabilities.windows import (
-    NetworkCapability,
-    ProcessesCapability,
-    StorageCapability,
-    WindowsApplicationsCapability,
-    WindowsFilesCapability,
-    WindowsFoldersCapability,
-    WindowsSystemCapability,
-    register_windows_capabilities,
-)
+from core.capabilities.base import CapabilityRegistry
+from core.capabilities.windows import register_windows_capabilities
+from core.intelligence.assistant import AstraAssistant
 from core.intelligence.context import ConversationContext
 from core.intelligence.intent import Intent, IntentType
 from core.intelligence.nlu import NLU
-from core.intelligence.assistant import AstraAssistant
-from core.capabilities.base import CapabilityRegistry
-
-from tools.base import ToolResult, ToolCall
-from tools.registry import ToolRegistry
-from tools.safety import ToolSafety
+from tools.base import ToolCall, ToolResult
 from tools.process_tools import (
-    CloseApplicationTool,
     SYSTEM_PROCESSES,
+    CloseApplicationTool,
     snapshot_processes,
     terminate_process,
 )
+from tools.registry import ToolRegistry
+from tools.safety import ToolSafety
 
 
 class AllowAllSafety(ToolSafety):
@@ -59,10 +47,10 @@ _results = {"pass": 0, "fail": 0}
 def _check(name, actual, expected):
     try:
         if isinstance(expected, type) and not isinstance(actual, expected):
-            raise AssertionError(f"expected {expected.__name__}, got {actual!r}")
+            raise TypeError(f"expected {expected.__name__}, got {actual!r}")
         if not isinstance(expected, type) and actual != expected:
             raise AssertionError(f"expected {expected!r}, got {actual!r}")
-    except Exception as error:
+    except (AssertionError, TypeError) as error:
         _results["fail"] += 1
         print(f"FAIL: {name} - {error}")
         return
@@ -128,7 +116,7 @@ class FakeRegistry:
 
 class FakeDiscovery:
 
-    APPS = {
+    APPS: ClassVar[dict] = {
         "chrome": "chrome",
         "browser": "chrome",
         "vs code": "vs code",
@@ -626,7 +614,7 @@ def _stub_close_registry():
 
         name = "close_application"
         description = "close an application"
-        parameters = {}
+        parameters: ClassVar[dict] = {}
         requires_confirmation = True
 
         def describe(self):
@@ -650,7 +638,7 @@ def _stub_close_registry():
     class StubOpenTool:
         name = "open_application"
         description = "open"
-        parameters = {}
+        parameters: ClassVar[dict] = {}
 
         def describe(self):
             return {"name": self.name, "description": self.description,
@@ -729,7 +717,7 @@ def test_specs_capability_runs():
         if live:
             ctypes.windll.kernel32.CloseHandle(snapshot)
         _check("toolhelp snapshot works", live, True)
-    except Exception as error:
+    except OSError:
         _check("toolhelp snapshot works", False, True)
 
 

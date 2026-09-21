@@ -7,11 +7,11 @@ entries.  Not a full database system.
 
 import os
 import sqlite3
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 def _now():
-    return datetime.now().isoformat(sep=" ", timespec="seconds")
+    return datetime.now(tz=timezone.utc).isoformat(sep=" ", timespec="seconds")
 
 
 class MemoryDatabase:

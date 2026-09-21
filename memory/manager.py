@@ -7,9 +7,9 @@ rejected outright.
 """
 
 import re
+from typing import ClassVar
 
 from memory.database import MemoryDatabase
-
 
 SENSITIVE_PATTERNS = re.compile(
     r"password|passcode|secret|credential|token|api ?key|credit ?card|"
@@ -162,7 +162,7 @@ class MemoryManager:
         if detail:
             content = f"{content} | {detail}"
 
-        ok, message, item = self.remember(content, category="tasks")
+        ok, _message, _item = self.remember(content, category="tasks")
 
         return ok
 
@@ -180,7 +180,7 @@ class MemoryManager:
     # RELEVANCE
     # ==============================================
 
-    STOPWORDS = {
+    STOPWORDS: ClassVar[set] = {
         "a", "an", "the", "and", "or", "but", "is", "are", "was",
         "were", "be", "been", "to", "of", "in", "on", "at", "for",
         "with", "from", "by", "about", "as", "it", "its", "this",

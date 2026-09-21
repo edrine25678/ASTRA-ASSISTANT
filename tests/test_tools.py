@@ -13,15 +13,15 @@ browser.
 
 import os
 import sys
+from typing import ClassVar
 
 sys.path.insert(
     0,
     os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 )
 
-from tools import build_default_registry, ToolCall
+from tools import ToolCall, build_default_registry
 from tools.safety import ToolSafety
-
 
 _PASS = 0
 _FAIL = 0
@@ -117,7 +117,7 @@ def test_safety_policy_denies():
     print("--- SAFETY POLICY ---")
 
     class StrictSafety(ToolSafety):
-        ALLOWED_TOOLS = {"get_time"}
+        ALLOWED_TOOLS: ClassVar[set] = {"get_time"}
 
     registry = build_default_registry(safety=StrictSafety())
 

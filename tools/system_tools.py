@@ -5,7 +5,10 @@ Everything here is read-only and obtained directly from Windows /
 Python system APIs.  No AI model is needed to answer these.
 """
 
+from __future__ import annotations
+
 import ctypes
+import logging
 import os
 import platform
 import shutil
@@ -14,10 +17,10 @@ import subprocess
 import time
 import urllib.request
 import winreg
-from datetime import datetime
+from datetime import datetime, timezone
+from typing import ClassVar
 
 from tools.base import Tool, ToolResult
-
 from tools.process_tools import SYSTEM_PROCESSES, snapshot_processes
 
 
@@ -215,20 +218,19 @@ def _memory_usage():
 
 # ==============================================
 # NETWORK (read-only, Phase 7)
-# ==============================================
 
 def _internet_available():
     """True when an HTTPS connection to a probe host succeeds."""
 
     try:
-
         with urllib.request.urlopen(
             "https://www.msftconnecttest.com/connecttest.txt",
             timeout=3,
         ) as response:
             return response.status == 200
 
-    except Exception:
+    except OSError as e:
+        logging.getLogger(__name__).warning("Internet check failed: %s", e)
         return False
 
 
@@ -243,6 +245,7 @@ def _wifi_ssid():
             text=True,
             timeout=5,
             creationflags=subprocess.CREATE_NO_WINDOW,
+            check=False,
         )
 
         for line in output.stdout.splitlines():
@@ -350,11 +353,11 @@ class GetTimeTool(Tool):
 
     name = "get_time"
     description = "Return the current local time"
-    parameters = {}
+    parameters: ClassVar[dict] = {}
 
     def run(self, arguments):
 
-        now = datetime.now().strftime("%I:%M %p")
+        now = datetime.now(tz=timezone.utc).strftime("%I:%M %p")
 
         return ToolResult(
             success=True,
@@ -367,11 +370,11 @@ class GetDateTool(Tool):
 
     name = "get_date"
     description = "Return today's date"
-    parameters = {}
+    parameters: ClassVar[dict] = {}
 
     def run(self, arguments):
 
-        today = datetime.now().strftime("%A, %B %d, %Y")
+        today = datetime.now(tz=timezone.utc).strftime("%A, %B %d, %Y")
 
         return ToolResult(
             success=True,
@@ -384,7 +387,7 @@ class SystemInfoTool(Tool):
 
     name = "system_info"
     description = "Return information about this computer"
-    parameters = {
+    parameters: ClassVar[dict] = {
         "topic": {
             "type": "str",
             "required": True,
@@ -792,8 +795,8 @@ class SystemInfoTool(Tool):
 
         parts = [
             f"your CPU is about {_format_gb(cpu)}% busy",
-            f"{_format_gb(percent)}% of your RAM is used "
-            f"({_format_gb(used)} of {_format_gb(total)} GB)",
+            (f"{_format_gb(percent)}% of your RAM is used "
+            f"({_format_gb(used)} of {_format_gb(total)} GB)"),
         ]
 
         if battery is not None:

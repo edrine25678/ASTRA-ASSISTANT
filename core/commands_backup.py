@@ -1,7 +1,7 @@
+import os
 import subprocess
 import webbrowser
-import os
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 class AstraCommands:
@@ -91,7 +91,7 @@ class AstraCommands:
                 "time"
             ]
         ):
-            current_time = datetime.now().strftime("%I:%M %p")
+            current_time = datetime.now(tz=timezone.utc).strftime("%I:%M %p")
             return f"The current time is {current_time}."
 
         # ==========================================
@@ -108,7 +108,7 @@ class AstraCommands:
                 "current date"
             ]
         ):
-            current_date = datetime.now().strftime("%A, %B %d, %Y")
+            current_date = datetime.now(tz=timezone.utc).strftime("%A, %B %d, %Y")
             return f"Today is {current_date}."
 
         # ==========================================
@@ -294,6 +294,6 @@ class AstraCommands:
                 shell=True
             )
 
-        except Exception:
+        except OSError:
 
             return

@@ -12,10 +12,8 @@ confirmed=True performs the action.
 """
 
 from core.logger import get_logger
-
 from tools.base import ToolCall, ToolResult
 from tools.safety import ToolSafety
-
 
 logger = get_logger("tools.registry")
 

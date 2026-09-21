@@ -1,22 +1,19 @@
 import time
 
-from voice.speaker import AstraSpeaker
-from voice.wake_word import AstraWakeWord
-from voice.whisper import AstraWhisper
-
 from config.settings import CONVERSATION_TIMEOUT
-
 from core.brain import AstraBrain
 from core.intelligence.assistant import AstraAssistant
 from core.state import (
     CONVERSATION,
     EXECUTING,
-    IDLE,
     LISTENING_FOR_COMMAND,
     LISTENING_FOR_WAKE_WORD,
     RESPONDING,
     AstraState,
 )
+from voice.speaker import AstraSpeaker
+from voice.wake_word import AstraWakeWord
+from voice.whisper import AstraWhisper
 
 
 class Astra:

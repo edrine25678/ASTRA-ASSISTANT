@@ -25,7 +25,6 @@ from PySide6.QtWidgets import (
 )
 
 from config.settings import AI_MODEL, AI_PROVIDER, ASTRA_VERSION
-
 from ui import theme
 
 

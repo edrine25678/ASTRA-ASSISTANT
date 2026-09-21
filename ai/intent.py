@@ -15,7 +15,6 @@ from dataclasses import dataclass, field
 
 from tools.base import ToolCall
 
-
 CONVERSATION = "conversation"
 APPLICATION_ACTION = "application_action"
 BROWSER_ACTION = "browser_action"
